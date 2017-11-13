@@ -35,21 +35,17 @@ public class MainActivity extends AppCompatActivity {
         textView=findViewById(R.id.textView);
         Intent intent=getIntent();
         if (intent!=null){
-            Toast.makeText(this, "paso", Toast.LENGTH_SHORT).show();
-
             manejaIntent(intent);}
     }
     private void manejaIntent(Intent intent) {
 
         if( Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            Toast.makeText(this, "paso3", Toast.LENGTH_SHORT).show();
             String query = intent.getStringExtra(SearchManager.QUERY);
             textView.setText(query);
         }
     }
     @Override
     protected void onNewIntent(Intent intent) {
-        Toast.makeText(this, "paso1", Toast.LENGTH_SHORT).show();
         super.onNewIntent(intent);
         manejaIntent(intent);
     }
